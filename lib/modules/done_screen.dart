@@ -19,7 +19,7 @@ class _done_ScreenState extends State<done_Screen> {
       listener: (context, state) {},
       builder: (context, state) {
         List<Map> tasks = AppCubit.get(context).doneTasks;
-        return taskBulider(tasks: tasks,tasksAndDone: false);
+        return taskBuilder(tasks: tasks,tasksAndDone: false);
       },
     );
   }

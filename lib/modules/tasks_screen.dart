@@ -1,8 +1,6 @@
-import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:to_do_app/shared/components/components.dart';
-import 'package:to_do_app/shared/components/constants.dart';
 import 'package:to_do_app/shared/cubit/cubit.dart';
 import 'package:to_do_app/shared/cubit/states.dart';
 
@@ -20,7 +18,7 @@ class _tasks_ScreenState extends State<tasks_Screen> {
       listener: (context, state) {},
       builder: (context, state) {
         List<Map> tasks = AppCubit.get(context).newTasks;
-        return taskBulider(tasks: tasks );
+        return taskBuilder(tasks: tasks );
       },
     );
   }

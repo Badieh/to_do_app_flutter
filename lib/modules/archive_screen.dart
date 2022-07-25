@@ -20,7 +20,7 @@ class _archive_ScreenState extends State<archive_Screen> {
       listener: (context, state) {},
       builder: (context, state) {
         List<Map> tasks = AppCubit.get(context).archivedTasks;
-        return taskBulider(tasks: tasks, dismissToDelete: true,tasksAndDone: false);
+        return taskBuilder(tasks: tasks, dismissToDelete: true,tasksAndDone: false);
       },
     );
   }

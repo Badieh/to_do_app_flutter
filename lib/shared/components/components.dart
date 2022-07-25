@@ -24,7 +24,7 @@ Widget defaultFormField({
       decoration: InputDecoration(
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(
+              borderSide: const BorderSide(
                 color: Colors.blue,
               )),
           label: Text(label),
@@ -56,7 +56,7 @@ Widget buildTaskItem(
               child: Text('${model['time']}'),
               radius: 35,
             ),
-            SizedBox(
+            const SizedBox(
               width: 20,
             ),
             Expanded(
@@ -66,23 +66,23 @@ Widget buildTaskItem(
                   children: [
                     Text(
                       '${model['title']}',
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: Colors.black,
                           fontSize: 30,
                           fontWeight: FontWeight.bold),
                     ),
                     Text(
                       '${model['date']}',
-                      style: TextStyle(color: Colors.grey, fontSize: 15),
+                      style: const TextStyle(color: Colors.grey, fontSize: 15),
                     ),
                   ]),
             ),
-            SizedBox(
+            const SizedBox(
               width: 20,
             ),
             IconButton(
                 onPressed: () {
-                  print('value of taskand done is $tasksAndDone');
+
                   tasksAndDone
                       ? AppCubit.get(context)
                           .updateDatabaseStatus(status: 'done', id: model['id'])
@@ -90,14 +90,14 @@ Widget buildTaskItem(
                           .updateDatabaseStatus(status: 'new', id: model['id']);
                 },
                 icon: tasksAndDone
-                    ? Icon(Icons.check_box, color: Colors.green)
-                    : Icon(Icons.task, color: Colors.blue)),
+                    ? const Icon(Icons.check_box, color: Colors.green)
+                    : const Icon(Icons.task, color: Colors.blue)),
           ],
         ),
       ),
     );
 
-Widget taskBulider(
+Widget taskBuilder(
         {required List<Map> tasks,
         bool dismissToDelete = false,
         bool tasksAndDone = true}) =>
@@ -115,19 +115,17 @@ Widget taskBulider(
                 color: Colors.grey,
               ),
           itemCount: tasks.length),
-      fallback: (context) => Container(
-        child: Center(
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Icon(
-                  Icons.menu,
-                  size: 100,
-                  color: Colors.grey,
-                ),
-                Text('No tasks yet , add some',
-                    style: TextStyle(fontSize: 30, color: Colors.grey)),
-              ]),
-        ),
+      fallback: (context) => Center(
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Icon(
+                Icons.menu,
+                size: 100,
+                color: Colors.grey,
+              ),
+              Text('No tasks yet , add some',
+                  style: TextStyle(fontSize: 30, color: Colors.grey)),
+            ]),
       ),
     );
